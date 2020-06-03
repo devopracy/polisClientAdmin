@@ -1,4 +1,4 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
 import Radium from "radium";
@@ -21,12 +21,11 @@ class Press extends React.Component {
   }
   static propTypes = {
     /* react */
-    // dispatch: React.PropTypes.func,
+
     params: React.PropTypes.object,
     routes: React.PropTypes.array,
     /* component api */
     style: React.PropTypes.object,
-    // foo: React.PropTypes.string
   }
   static defaultProps = {
     // foo: "bar"
@@ -37,8 +36,6 @@ class Press extends React.Component {
         backgroundColor: "rgb(247,247,247)",
         color: "darkgray",
         width: "100%",
-        // "@media (min-width: 768px)": {
-        // }
       },
       article: {
         padding: 30
@@ -69,12 +66,6 @@ class Press extends React.Component {
               style={this.getStyles().newsLogo}
               src="http://cdn.geekwire.com/wp-content/uploads/2015/02/GeekWire-logo-transparent.png"/>
           </a>
-          {/*<a style={this.getStyles().article} href="http://m.media.daum.net/m/media/world/newsview/20160302145809114">
-            <img
-              key="2"
-              style={this.getStyles().newsLogo}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Daum_communication_logo.svg/2000px-Daum_communication_logo.svg.png"/>
-          </a>*/}
           <a style={this.getStyles().article} href="http://www.poynter.org/2016/here-are-27-ways-to-think-about-comments/401728/">
             <img
               key="3"

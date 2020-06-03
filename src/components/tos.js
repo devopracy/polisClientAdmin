@@ -1,39 +1,24 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from 'react';
 import Radium from 'radium';
 import _ from 'lodash';
-import { doSignout } from '../actions';
-import StaticContentContainer from "./framework/static-content-container";
 
-const styles = {
-    card: {
-    position: "relative",
-    zIndex: 10,
-    padding: "50px",
-    borderRadius: 3,
-    color: "rgb(130,130,130)",
-    maxWidth: 700,
-    margin: 50
-  },
-}
+import LanderContainer from "./App/Container/LanderContainer";
+import ContainerInner from "./App/Container/ContainerInner";
 
-@Radium
+
 class TOS extends React.Component {
 
   render() {
     return (
-      <StaticContentContainer
-        backgroundColor={"#03a9f4"}
-        headerBackgroundColor={"#03a9f4"}
-        footerBackgroundColor={"#03a9f4"}
-        image={false}>
-    <div style={styles.card}>
+      <LanderContainer>
+        <ContainerInner>
     <p>"Last Updated: 6/26/2014"</p>
 
     <p>"Po.lis Terms of Use"</p>
 
-    <p>"Welcome, and thank you for your interest in Polis Technology Inc ('Pol.is', 'we,'
+    <p>"Welcome, and thank you for your interest in The Authors ('Pol.is', 'we,'
     or 'us') and our Web site at <a href='http://pol.is/'>http://pol.is/</a> (the
     'Site'), as well as all related web sites, networks, embeddable widgets, downloadable
     software, mobile applications (including tablet applications), and other services
@@ -398,7 +383,7 @@ class TOS extends React.Component {
           written notice of the dispute to the other, by certified mail or Federal
           Express (signature required), or in the event that we do not have a physical
           address on file for you, by electronic mail ('Notice'). The address of Pol.is
-          for Notice is: Polis Technology Inc 3601 Fremont Ave. N, Suite 300 Seattle, WA
+          for Notice is: The Authors 3601 Fremont Ave. N, Suite 300 Seattle, WA
           98103. The Notice must (i) describe the nature and basis of the claim or
           dispute; and (ii) set forth the specific relief sought ('Demand'). We agree to
           use good faith efforts to resolve the claim directly, but if we do not reach an
@@ -473,8 +458,8 @@ class TOS extends React.Component {
       you electronically by sending a letter to the foregoing address with your
       electronic mail address and a request for these Terms."</li>
     </ol>
-  </div>
-</StaticContentContainer>
+  </ContainerInner>
+</LanderContainer>
 
     );
   }

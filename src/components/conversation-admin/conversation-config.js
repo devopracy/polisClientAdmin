@@ -1,4 +1,4 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import Features from "../../util/plan-features";
 import { lockedIcon} from "../../util/plan-features";
@@ -212,6 +212,15 @@ class ConversationConfig extends React.Component {
             labelWrapperColor={settings.darkerGray}
             color={settings.polisBlue}/>
             <p style={{fontSize: 10, fontStyle: "italic"}}> Show the two explanation modals above voting and the visualization </p>
+          <Checkbox
+            label="Prompt participants to subscribe to updates"
+            ref={"subscribe_type"}
+            checked={this.props.zid_metadata.subscribe_type === 1 ? true : false}
+            onCheck={ this.handleIntegerBoolValueChange("subscribe_type").bind(this) }
+            labelPosition={"left"}
+            labelWrapperColor={settings.darkerGray}
+            color={settings.polisBlue}/>
+            <p style={{fontSize: 10, fontStyle: "italic"}}> A prompt is shown to users once they finish voting on all available comments. They may optionally provide their email address to receive notifications when there are new comments to vote on. </p>
           <Checkbox
             label="Social sharing buttons"
             ref={"socialbtn_type"}

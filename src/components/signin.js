@@ -1,30 +1,19 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
 import { connect } from "react-redux";
 import { doSignin, doFacebookSignin } from "../actions";
 import Radium from "radium";
-import Flex from "./framework/flex";
-import Button from "./framework/generic-button";
-import Awesome from "react-fontawesome";
 import {Link} from "react-router";
-import StaticContentContainer from "./framework/static-content-container";
+import { SocialIcon } from "tachyons-react-social-icons";
+
+import Button from "./framework/generic-button";
+import LanderContainer from "./App/Container/LanderContainer";
+import ContainerInner from "./App/Container/ContainerInner";
+
 import strings from "../strings/strings";
 
 const styles = {
-  heading: {
-    fontSize: 36,
-    display: "block",
-    marginBottom: 20,
-    marginTop: 0
-  },
-  card: {
-    position: "relative",
-    zIndex: 10,
-    padding: 20,
-    borderRadius: 3,
-    color: "rgb(130,130,130)"
-  },
   button: {
     display: "block",
     backgroundColor: "#03a9f4",
@@ -89,10 +78,6 @@ class SignIn extends React.Component {
     this.props.dispatch(doSignin(attrs, dest));
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('resize', () => {}, true);
-  // }
-
   facebookButtonClicked() {
     var dest = this.getDest();
     if (!dest.length) {
@@ -123,8 +108,8 @@ class SignIn extends React.Component {
   }
   drawLoginForm() {
     return (
-      <div>
-        <form>
+      <div className="w-100 w-50-ns">
+        <form className="mb4">
           <input
             style={styles.input}
             ref="email"
@@ -139,35 +124,31 @@ class SignIn extends React.Component {
           <Button style={styles.button} onClick={this.handleLoginClicked.bind(this)}>
             {this.props.pending ? "Signing in..." : "Sign In"}
           </Button>
-        </form>
-        <p style={styles.termsSmallprint}>
-          {
-            "If you click 'Sign in with Facebook' and are not a pol.is user, you will be registered and you agree to the pol.is terms and privacy policy"
-          }
-        </p>
-        <Button
-          style={styles.facebookButton}
-          onClick={this.facebookButtonClicked.bind(this)}>
-          <Awesome style={{
-            color: "#3b5998",
-            backgroundColor: "rgb(255,255,255)",
-            padding: "3px 5px",
-            borderRadius: 3,
-          }} name="facebook"/>
-          <span style={{marginLeft: 10}}>{"Sign in with Facebook"}</span>
-        </Button>
-
-        <div style={styles.signupContainer}>
-          {"Don't have an account? "}
-          <Link style={styles.signupLink} to={"/createuser" + this.getDest()}>
-            Sign up
-          </Link>
-        </div>
-        <div style={styles.signupContainer}>
+        <p style={styles.signupContainer}>
           {"Forgot your password? "}
           <Link style={styles.signupLink} to={"/pwresetinit"}>
             Reset Password
           </Link>
+        </p>
+
+        </form>
+        <div className="bt b--light-gray pt3">
+          <Button
+            style={styles.facebookButton}
+            onClick={this.facebookButtonClicked.bind(this)}>
+              <SocialIcon
+                key="icon-facebook"
+                network="facebook"
+                color="white"
+                className="mr3"
+              />          
+            <span>{"Sign in with Facebook"}</span>
+          </Button>
+          <p className="mt4 mb3 lh-copy">
+            {
+              "If you click 'Sign in with Facebook' and are not a pol.is user, you will be registered and you agree to the pol.is terms and privacy policy"
+            }
+          </p>
         </div>
       </div>
     )
@@ -214,23 +195,18 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <StaticContentContainer
-        backgroundColor={"#03a9f4"}
-        headerBackgroundColor={"#03a9f4"}
-        footerBackgroundColor={"#03a9f4"}
-        image={false}>
-        <Flex>
-          <div style={styles.card}>
-            <p style={styles.heading}>
-              <Awesome name={"sign-in"} /> Sign In
-            </p>
-            {
-              this.props.facebookError !== "polis_err_user_with_this_email_exists" ?
-                this.drawLoginForm() : this.drawPasswordConnectFacebookForm()
-            }
-          </div>
-        </Flex>
-      </StaticContentContainer>
+      <LanderContainer>
+        <ContainerInner>
+          <header>
+            <h1>Sign in</h1>
+          </header>
+
+          {
+            this.props.facebookError !== "polis_err_user_with_this_email_exists" ?
+              this.drawLoginForm() : this.drawPasswordConnectFacebookForm()
+          }
+        </ContainerInner>
+      </LanderContainer>
     );
   }
 }

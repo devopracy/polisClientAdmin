@@ -1,4 +1,4 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import $ from "jquery";
 import PolisNet from "../util/net";
@@ -995,7 +995,9 @@ const commentsFetchError = (err) => {
 }
 
 const fetchAllComments = (conversation_id) => {
-  return $.get("/api/v3/comments?moderation=true&include_social=true&conversation_id=" + conversation_id);
+  // let includeSocial = "include_social=true&";
+  let includeSocial = "";
+  return $.get("/api/v3/comments?moderation=true&include_voting_patterns=false&"+includeSocial+"conversation_id=" + conversation_id);
 };
 
 export const populateCommentsStore = (conversation_id) => {
@@ -1068,7 +1070,9 @@ const unmoderatedCommentsFetchError = (err) => {
 }
 
 const fetchUnmoderatedComments = (conversation_id) => {
-  return $.get("/api/v3/comments?moderation=true&include_social=true&mod=0&conversation_id=" + conversation_id);
+  // let includeSocial = "include_social=true&";
+  let includeSocial = "";
+  return $.get("/api/v3/comments?moderation=true&include_voting_patterns=false&" +includeSocial+"mod=0&conversation_id=" + conversation_id);
 }
 
 export const populateUnmoderatedCommentsStore = (conversation_id) => {
@@ -1104,7 +1108,9 @@ const acceptedCommentsFetchError = (err) => {
 }
 
 const fetchAcceptedComments = (conversation_id) => {
-  return $.get("/api/v3/comments?moderation=true&mod=1&include_social=true&conversation_id=" + conversation_id);
+  // let includeSocial = "include_social=true&";
+  let includeSocial = "";
+  return $.get("/api/v3/comments?moderation=true&include_voting_patterns=false&mod=1&"+includeSocial+"conversation_id=" + conversation_id);
 }
 
 export const populateAcceptedCommentsStore = (conversation_id) => {
@@ -1141,7 +1147,9 @@ const rejectedCommentsFetchError = (err) => {
 
 
 const fetchRejectedComments = (conversation_id) => {
-  return $.get("/api/v3/comments?moderation=true&include_social=true&mod=-1&conversation_id=" + conversation_id);
+  // let includeSocial = "include_social=true&";
+  let includeSocial = "";
+  return $.get("/api/v3/comments?moderation=true&include_voting_patterns=false&"+includeSocial+"mod=-1&conversation_id=" + conversation_id);
 }
 
 export const populateRejectedCommentsStore = (conversation_id) => {

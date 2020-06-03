@@ -10,26 +10,26 @@ Install the NVM following the instructions: [NVM Installation Guide](https://git
 
 Them run the commands below to install the correct Node.JS version and the application dependencies.
 
-```
-$ nvm install 6.2.0
-$ npm install
+```sh
+nvm install 6.2.0
+npm install
 ```
 
 ### Common Problems
 
 If you having troubles with npm dependencies try run the commands below:
 
-```
-$ npm cache clear
-$ npm install
+```sh
+npm cache clear
+npm install
 ```
 
 Running Application
 -------------------
 
-```
-$ nvm use 6.2.0
-$ npm start
+```sh
+nvm use 6.2.0
+npm start
 ```
 
 Running Tests
@@ -37,10 +37,36 @@ Running Tests
 
 We use the Jest Testing Framework.
 
+```sh
+npm test
 ```
-$ npm test
+
+Building and Deploying for Production
+-------------------------------------
+
+To build static assets for a production deployment, run
+
+```sh
+gulp dist
+```
+
+As a convenience, the `deploy_TO_PRODUCTION` script is provided for deploying to AWS S3 or via SCP to a static file server.
+For S3 deployment, place your AWS credentials in a JSON file at `.polis_s3_creds_client.json` that looks like this:
+
+```json
+{"key": "XXXXXXX", "secret": "YYYYYYY"}
 ```
 
 ---
 
-**Want to contribute to this project?** See the [Contribution Guide](CONTRIBUTING.md) for more informations.
+### Icons from the Noun Project
+
+* Checklist by David Courey from the Noun Project
+* AI by mungang kim from the Noun Project
+* Science by Akriti Bhusal from the Noun Project
+* Success File by Ben Davis from the Noun Project
+
+### Collections to look into
+
+* https://thenounproject.com/vectorsmarket/collection/project-management-line-icon/?i=1326778
+

@@ -1,4 +1,4 @@
-// Copyright (C) 2012-present, Polis Technology Inc. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright (C) 2012-present, The Authors. This program is free software: you can redistribute it and/or  modify it under the terms of the GNU Affero General Public License, version 3, as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
 import { connect } from "react-redux";
@@ -21,7 +21,6 @@ class SidebarContentHome extends React.Component {
     routes: React.PropTypes.array,
     /* component api */
     styles: React.PropTypes.object,
-    // foo: React.PropTypes.string
   }
   onNewClicked() {
     this.props.dispatch(handleCreateConversationSubmit());
@@ -66,10 +65,6 @@ class SidebarContentHome extends React.Component {
             selected={this.props.routes[1] && this.props.routes[1].path === "account"}
             icon="credit-card"
             text="Account"/>
-
-          {/*<a style={Object.assign({}, s.sidebarLink, {marginTop: 40})} target="blank" href="http://docs.pol.is">
-            <span style={{marginRight: 10}}>Docs</span><Awesome name="external-link"/>
-          </a>*/}
           <Link
             style={s.sidebarLink}
             to={"/signout"}>
@@ -82,22 +77,3 @@ class SidebarContentHome extends React.Component {
 }
 
 export default SidebarContentHome;
-
-/*
-  Todo
-    make new button point to config of fresh convo
-*/
-
-// <p>
-//   <Awesome name="home" style={{fontSize: 24, cursor: "pointer"}}/>
-//   Polis Home
-// </p>
-// <div>
-//   { this.props.user ? this.props.user.hname : /*<Spinner/>*/ "o" }
-// </div>
-
-// <Link
-//   style={s.sidebarLink}
-//   to="/overall-stats">
-//   Overall Stats
-// </Link>
